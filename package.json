@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "create-react-app": "^5.0.1",
+    "express": "^4.18.2",
+    "openai": "^3.2.1"
+  }
+}
