@@ -1,0 +1,10 @@
+
+.ChatGpt{
+    width: 400px;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;bottom:0px;
+    z-index: 1;
+    right: 0;
+    
+}

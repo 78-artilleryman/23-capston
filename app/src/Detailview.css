@@ -1,0 +1,42 @@
+h1{ display: none;
+overflow: hidden;}
+p{
+    margin: 15px;
+    display: none;
+
+}
+.detail{
+    z-index: 1000;
+    width: 400px;
+    height: 300px;
+    background-color:gray;
+    position: absolute;
+    left:200px;
+    top:100px;
+    overflow: hidden;
+
+
+
+}
+img{
+    width: 380px;
+    height: 280px;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+}
+.detail:hover{
+    width:1000px;
+    transition:width 2s, height 0s;
+
+}
+.detail:hover > p{
+
+    display: block;
+
+}
+.detail:hover > h1{
+
+    display: block;
+
+}
