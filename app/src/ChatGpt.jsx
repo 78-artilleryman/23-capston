@@ -3,7 +3,7 @@ import './ChatGpt.css'
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator} from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = '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';
+const API_KEY = "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";
 
 function ChatGPT() {
   const [typing, setTyping] = useState(false);
@@ -49,7 +49,7 @@ function ChatGPT() {
 
     const systemMessage = {
       role: "system",
-      content: "Speak like a pirate" //GPT 컨셉 설정
+      content: "Speak like a Guidence" //GPT 컨셉 설정
     }
 
     const apiRequestBody = {
