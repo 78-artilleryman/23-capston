@@ -260,11 +260,10 @@ const MapContainer = () => {
 
     // 지도에 폴리곤으로 표시할 영역데이터 배열입니다 
     var areas = [
-      {
+    {
         name : '강원도',
         path : [GangwondoArr]
-        
-    }, {        
+    }, {  
         name : '경기도',
         path : [GyeonggidoArr_1, GyeonggidoArr_2]
     }, {
@@ -323,14 +322,15 @@ const MapContainer = () => {
     };
 
   var map = new kakao.maps.Map(mapContainer, mapOption),
-    customOverlay = new kakao.maps.CustomOverlay({}),
-    infowindow = new kakao.maps.InfoWindow({removable: true});
+    customOverlay = new kakao.maps.CustomOverlay({});
+    
 
 
   // 지도에 영역데이터를 폴리곤으로 표시합니다 
   for (var i = 0, len = areas.length; i < len; i++) {
     displayArea(areas[i]);
   }
+    
 
   var polygons=[]; //function 안 쪽에 지역변수로 넣으니깐 폴리곤 하나 생성할 때마다 배열이 비어서 클릭했을 때 전체를 못 없애줌.  그래서 전역변수로 만듦.
 
@@ -403,13 +403,83 @@ function displayArea(area) {
   // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 해당 지역 확대을 확대합니다
   kakao.maps.event.addListener(polygon, 'click', function() {
         
-    // 현재 지도 레벨에서 2레벨 확대한 레벨
+    // 현재 지도 레벨에서 레벨 확대한 레벨
     var level = map.getLevel()-3;
     
     // 지도를 클릭된 폴리곤의 중앙 위치를 기준으로 확대합니다
-    map.setLevel(level, {anchor: new kakao.maps.LatLng(37.8304115, 128.2260705), animate: {
+    if (area.name === '강원도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(37.8304115, 128.2260705), animate: {
         duration: 350            //확대 애니메이션 시간
-    }});            
+    }});
+          
+    } else if (area.name === '경기도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(37.5864315, 127.0462765), animate: {
+        duration: 350            
+    }});    
+    } else if (area.name === '경상남도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.259787, 128.664734), animate: {
+        duration: 350            
+    }});
+    } else if (area.name === '경상북도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(36.248647, 128.664734), animate: {
+        duration: 350            
+    }});
+    } else if (area.name === '광주광역시') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.126033, 126.831302), animate: {
+        duration: 350            
+    }});
+    } else if (area.name === '대구광역시') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.798838, 128.583052), animate: {
+        duration: 350            
+    }});
+    } else if (area.name === '대전광역시') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(36.321655, 127.378953), animate: {
+        duration: 350            
+    }});
+    } else if (area.name === '부산광역시') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.198362, 129.053922), animate: {
+        duration: 350            
+    }});
+    } else if (area.name === '서울특별시') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(37.5642135, 127.0016985), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }});  
+    } else if (area.name === '세종특별자치시') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(36.5040736, 127.2494855), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }}); 
+    } else if (area.name === '울산광역시') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.519301, 129.239078), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }});
+    } else if (area.name === '인천광역시') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(37.469221, 126.573234), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }});
+    } else if (area.name === '전라남도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(34.819400, 126.893113), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }});
+    } else if (area.name === '전라북도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.716705, 127.144185), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }});
+    } else if (area.name === '제주특별자치도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(33.364805, 126.542671), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }});
+    } else if (area.name === '충청남도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(36.557229, 126.779757), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }});
+    } else if (area.name === '충청북도') {
+      map.setLevel(level, {anchor: new kakao.maps.LatLng(36.628503, 127.929344), animate: {
+          duration: 350            //확대 애니메이션 시간
+      }});
+      
+    }   
+    
+             
     polygon.setMap(null);
     //deletePolygon(polygons);                    //폴리곤 제거      
   });
