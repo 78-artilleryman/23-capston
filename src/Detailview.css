@@ -1,3 +1,6 @@
+
+
+
 h1{ display: none;
 overflow: hidden;}
 .detail p{
@@ -6,6 +9,7 @@ overflow: hidden;}
 
 }
 .detail{
+    display: none;
     z-index: 1000;
     width: 400px;
     height: 300px;
@@ -18,7 +22,7 @@ overflow: hidden;}
 
 
 }
-img{
+.detail img{
     width: 380px;
     height: 280px;
     margin-top: 10px;
