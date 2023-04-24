@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './Detailview.css';
 import ReactDOM, { render } from "react-dom";
 import { useState } from 'react';
-import './Detailview.css';
+
 
 
 const { kakao } = window;
@@ -112,6 +112,7 @@ const MapContainer = () => {
           '<div>' + attraction.addr1 + '</div>' +
           '<div>' + attraction.tel + '</div>' +
           '</div>',
+          removable: true,
       });
   
       kakao.maps.event.addListener(marker, "click", () => {
