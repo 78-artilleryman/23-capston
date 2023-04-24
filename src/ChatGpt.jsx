@@ -3,9 +3,20 @@ import './ChatGpt.css'
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator} from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = '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';
+const API_KEY = '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';
 
-function ChatGPT() {
+  let areaName;
+  let areaFood;
+
+function ChatGPT(props) {
+
+  console.log(props)
+  
+  areaFood = props.food;
+  areaName = props.name;
+
+ 
+  
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -14,18 +25,58 @@ function ChatGPT() {
     }
   ])
 
-  const handleSend = async (message) => {
+
+  const handleSendFood = async (message) => {
     const newMessage = {
-      message: message,
+      message: areaFood,
       sender: "user",
       direction: "outgoing"
     }
-
+    
     const newMessages = [...messages, newMessage];
 
     setMessages(newMessages);
 
     setTyping(true);
+
+
+    await MessageChatGPT(newMessages);
+
+  }
+
+  const handleSendName = async (message) => {
+    const newMessage = {
+      message: areaName,
+      sender: "user",
+      direction: "outgoing"
+    }
+    
+    const newMessages = [...messages, newMessage];
+
+    setMessages(newMessages);
+
+    setTyping(true);
+
+
+    await MessageChatGPT(newMessages);
+
+  }
+
+  const handleSend = async (message) => {
+    
+    const newMessage = {
+      message: message,
+      sender: "user",
+      direction: "outgoing"
+    }
+    
+    const newMessages = [...messages, newMessage];
+
+    setMessages(newMessages);
+    
+
+    setTyping(true);
+
 
     await MessageChatGPT(newMessages);
 
@@ -92,8 +143,12 @@ function ChatGPT() {
               {messages.map((message, i) => {
                 return <Message key={i} model={message}/>
               })}
+            <div className='mkbtt'>
+              <button onClick={handleSendName} >여행지</button>
+              <button onClick={handleSendFood} >음식</button>
+            </div>
             </MessageList>
-            <MessageInput placeholder='Type message here' onSend={handleSend}/>
+            <MessageInput placeholder='Type message here' onSend={handleSend}></MessageInput>
           </ChatContainer>
         </MainContainer>
       </div>

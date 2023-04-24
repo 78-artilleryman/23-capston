@@ -5,15 +5,22 @@ import Detailview from './Detailview';
 import { Link ,Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './Detailview.css';
-import ReactDOM, { render } from "react-dom";
+import ReactDOM, { render } from "react-dom/client";
 import { useState } from 'react';
+import './Detailview.css';
+import ChatGPT from './ChatGpt';
 
 
 
 const { kakao } = window;
+let newAreaCenter = {};
 
 
 const MapContainer = () => {
+  const[areaCenter, setAreaCenter] = useState({
+    name: null,
+    food: null
+  });
   const [attractions, setAttractions] = useState([]);
   const [map, setMap] = useState(null);
   const [areaCode, setAreaCode] = useState(null);
@@ -56,8 +63,7 @@ const MapContainer = () => {
       });
   } */
   
-  let areaCenter = '';
-  
+
 
   
   
@@ -561,104 +567,172 @@ function displayArea(area) {
     // root.render(dv); //솔
         
       setAreaCode(32);      
-      areaCenter = area.name;      
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '경기도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(37.5864315, 127.0462765), animate: {
         duration: 350            
     }});
       setAreaCode(31);
-      areaCenter = area.name;    
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter); 
     } else if (area.name === '경상남도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(35.259787, 128.664734), animate: {
         duration: 350            
     }});
       setAreaCode(36);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '경상북도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(36.248647, 128.664734), animate: {
         duration: 350            
     }});
       setAreaCode(35);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '광주광역시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(35.126033, 126.831302), animate: {
         duration: 350            
     }});
        setAreaCode(5);
-      areaCenter = area.name;
+       newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '대구광역시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(35.798838, 128.583052), animate: {
         duration: 350            
     }});
        setAreaCode(4);
       
-      areaCenter = area.name;
+       newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '대전광역시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(36.321655, 127.378953), animate: {
         duration: 350            
     }});
       setAreaCode(3);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '부산광역시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(35.198362, 129.053922), animate: {
         duration: 350            
     }});
       setAreaCode(6);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '서울특별시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(37.5642135, 127.0016985), animate: {
           duration: 350            
       }});
       setAreaCode(1);
-      areaCenter = area.name;  
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '세종특별자치시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(36.5040736, 127.2494855), animate: {
           duration: 350            
       }});
       setAreaCode(8);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '울산광역시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(35.519301, 129.239078), animate: {
           duration: 350            
       }});
       setAreaCode(7);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '인천광역시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(37.469221, 126.573234), animate: {
           duration: 350            
       }});
       setAreaCode(2);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '전라남도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(34.819400, 126.893113), animate: {
           duration: 350            
       }});
       setAreaCode(38);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '전라북도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(35.716705, 127.144185), animate: {
           duration: 350            
       }});
       setAreaCode(37);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '제주특별자치도') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(33.240223, 126.557894), animate: {
           duration: 350            
       }});
       setAreaCode(39);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '충청남도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(36.557229, 126.779757), animate: {
           duration: 350            
       }});
       setAreaCode(34);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     } else if (area.name === '충청북도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(36.628503, 127.929344), animate: {
           duration: 350            
       }});
       setAreaCode(33);
-      areaCenter = area.name;
+      newAreaCenter = {
+        name: area.name + " 여행지 추천해줘",
+        food: area.name + " 음식 추천해줘"
+      };
+      setAreaCenter(newAreaCenter);
     }   
     
       
@@ -738,7 +812,7 @@ function displayArea(area) {
     <div className="App">
 
       <div id="map" className="map"/>
-
+      <ChatGPT name={areaCenter.name} food={areaCenter.food}></ChatGPT>
     </div>
     
   );
